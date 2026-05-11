@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx shadcn@latest init -d)",
+      "Bash(npx shadcn@latest add card navigation-menu sheet badge separator)",
+      "Bash(npm run *)",
+      "Bash(gh repo *)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(cp -r \"C:/Users/jahir/OneDrive/Bureau/PRODUITS DIGITAUX/Outils_claude/gsap-skills/skills/gsap-core\" \"C:/Users/jahir/.claude/skills/\")",
+      "Bash(cp -r \"C:/Users/jahir/OneDrive/Bureau/PRODUITS DIGITAUX/Outils_claude/gsap-skills/skills/gsap-timeline\" \"C:/Users/jahir/.claude/skills/\")",
+      "Bash(cp -r \"C:/Users/jahir/OneDrive/Bureau/PRODUITS DIGITAUX/Outils_claude/gsap-skills/skills/gsap-scrolltrigger\" \"C:/Users/jahir/.claude/skills/\")",
+      "Bash(cp -r \"C:/Users/jahir/OneDrive/Bureau/PRODUITS DIGITAUX/Outils_claude/gsap-skills/skills/gsap-plugins\" \"C:/Users/jahir/.claude/skills/\")",
+      "Bash(cp -r \"C:/Users/jahir/OneDrive/Bureau/PRODUITS DIGITAUX/Outils_claude/gsap-skills/skills/gsap-utils\" \"C:/Users/jahir/.claude/skills/\")",
+      "Bash(npx skills *)"
+    ]
+  }
+}
