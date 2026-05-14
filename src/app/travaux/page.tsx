@@ -15,7 +15,7 @@ const poles = [
     slug: "electricite",
     icon: Zap,
     title: "Électricité",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1635335874521-7987db781153?w=800&q=80",
     description:
       "Installation, mise aux normes NF C 15-100, remplacement de tableau électrique, prises, interrupteurs, éclairage LED, domotique, alarme.",
     items: [
@@ -31,7 +31,7 @@ const poles = [
     slug: "plomberie",
     icon: Droplets,
     title: "Plomberie",
-    image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1613849925496-e6d683c091f1?w=800&q=80",
     description:
       "Entretien et installation de réseaux eau chaude/froide, sanitaires, robinetterie, chauffe-eau, dépannage urgent et traitement de fuites.",
     items: [
@@ -47,7 +47,7 @@ const poles = [
     slug: "menuiserie",
     icon: Hammer,
     title: "Menuiserie",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1631396326838-de37e5f8bcbc?w=800&q=80",
     description:
       "Pose et remplacement de portes, fenêtres, volets, parquet. Travaux d'aménagement intérieur, placards, cloisons et escaliers.",
     items: [
@@ -63,7 +63,7 @@ const poles = [
     slug: "depannage",
     icon: Wrench,
     title: "Dépannage",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1774977863604-59f4e6d37a90?w=800&q=80",
     description:
       "Intervention rapide sous 24h pour toute urgence : fuite, panne électrique, serrure, vitre cassée. Disponible partout en France.",
     items: [
@@ -79,7 +79,7 @@ const poles = [
     slug: "multiservices",
     icon: Settings,
     title: "Multiservices",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1581783898377-1c85bf937427?w=800&q=80",
     description:
       "Petits travaux, assemblage de meubles, fixation, peinture ponctuelle, nettoyage de fin de chantier. Un artisan polyvalent pour tout gérer.",
     items: [
@@ -109,7 +109,7 @@ export default function TravauxPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#1B3A6B] py-24 md:py-32">
         <Image
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1676630656246-3047520adfdf?w=1920&q=80"
           alt="Travaux BATIMTEC"
           fill
           priority

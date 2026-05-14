@@ -15,7 +15,7 @@ const specialites = [
     slug: "chauffage",
     icon: Flame,
     title: "Chauffage",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1669725807131-a518ee3ec1cc?w=800&q=80",
     description: "Installation et entretien de systèmes de chauffage central, plancher chauffant électrique ou hydraulique. Diagnostic thermique inclus.",
     items: [
       "Chaudière gaz, fioul, bois",
@@ -30,7 +30,7 @@ const specialites = [
     slug: "ventilation",
     icon: Wind,
     title: "Ventilation",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1546190644-435435caeb68?w=800&q=80",
     description: "Pose et maintenance de VMC simple ou double flux. Renouvellement d'air réglementaire pour logements, bureaux et ERP.",
     items: [
       "VMC simple flux autoréglable",
@@ -45,7 +45,7 @@ const specialites = [
     slug: "climatisation",
     icon: Zap,
     title: "Climatisation",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1718203862467-c33159fdc504?w=800&q=80",
     description: "Installation de systèmes de climatisation réversible : split, multi-split, gainable. Maintenance annuelle et rechargement de fluide frigorigène.",
     items: [
       "Split system mono et multi",
@@ -60,7 +60,7 @@ const specialites = [
     slug: "pac",
     icon: RefreshCw,
     title: "Pompe à chaleur",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1776860150272-653efc74193c?w=800&q=80",
     description: "Installation de PAC air/air et air/eau pour un chauffage économique et écologique. Éligible aux aides MaPrimeRénov' et CEE.",
     items: [
       "PAC air/air",
@@ -75,7 +75,7 @@ const specialites = [
     slug: "chaudiere",
     icon: Thermometer,
     title: "Chaudière",
-    image: "https://images.unsplash.com/photo-1474929814553-cf507c4e2b90?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1523495909838-79c67b15be34?w=800&q=80",
     description: "Installation de chaudières à condensation gaz, fioul ou biomasse. Entretien annuel obligatoire et dépannage toutes marques.",
     items: [
       "Chaudière à condensation gaz",
@@ -100,7 +100,7 @@ export default function CVCPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#1B3A6B] py-24 md:py-32">
         <Image
-          src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1739203469638-d6f54c24a5da?w=1920&q=80"
           alt="Installation CVC BATIMTEC"
           fill
           priority

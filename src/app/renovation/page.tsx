@@ -15,7 +15,7 @@ const prestations = [
     slug: "sols",
     icon: Layers,
     title: "Sols & revêtements",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1548268364-3acee266b695?w=800&q=80",
     description:
       "Pose de parquet massif, stratifié, carrelage, vinyle et moquette. Ragréage, préparation des supports et finitions soignées.",
     items: [
@@ -31,7 +31,7 @@ const prestations = [
     slug: "peinture",
     icon: PaintBucket,
     title: "Peinture & décoration",
-    image: "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1688372199140-cade7ae820fe?w=800&q=80",
     description:
       "Peinture intérieure et extérieure, enduits décoratifs, papiers peints haut de gamme. Transformation complète de l&apos;ambiance de vos espaces.",
     items: [
@@ -47,7 +47,7 @@ const prestations = [
     slug: "cuisine",
     icon: ChefHat,
     title: "Cuisine",
-    image: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800&q=80",
     description:
       "Rénovation complète ou partielle de cuisine : pose de meubles, plan de travail, crédence, électroménager encastré, plomberie et électricité.",
     items: [
@@ -63,7 +63,7 @@ const prestations = [
     slug: "salle-de-bain",
     icon: Droplets,
     title: "Salle de bain",
-    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1587527901949-ab0341697c1e?w=800&q=80",
     description:
       "Rénovation de salle de bain clé en main : douche à l&apos;italienne, baignoire, faïence, meuble vasque, robinetterie et chauffage sèche-serviettes.",
     items: [
@@ -79,7 +79,7 @@ const prestations = [
     slug: "agrandissement",
     icon: Maximize,
     title: "Agrandissement",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1723468366036-c5598c8e9786?w=800&q=80",
     description:
       "Extension de maison, véranda, surélévation, aménagement de combles ou de sous-sol. Etude de faisabilité et permis de construire.",
     items: [
@@ -99,7 +99,7 @@ export default function RenovationPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#1B3A6B] py-24 md:py-32">
         <Image
-          src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1689043528099-2ba014dd7c64?w=1920&q=80"
           alt="Rénovation BATIMTEC"
           fill
           priority

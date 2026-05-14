@@ -15,7 +15,7 @@ const poles = [
     slug: "contrats",
     icon: FileText,
     title: "Contrats de maintenance",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1591588582259-e675bd2e6088?w=800&q=80",
     description:
       "Contrats sur mesure pour la maintenance préventive et curative de vos bâtiments. Un interlocuteur unique, un planning annuel, un budget maîtrisé.",
     items: [
@@ -31,7 +31,7 @@ const poles = [
     slug: "controles",
     icon: ClipboardCheck,
     title: "Contrôles techniques réglementaires",
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1555963966-b7ae5404b6ed?w=800&q=80",
     description:
       "Planification et suivi de l&apos;ensemble des contrôles réglementaires obligatoires : électricité, gaz, ascenseurs, installations de sécurité.",
     items: [
@@ -47,7 +47,7 @@ const poles = [
     slug: "commission",
     icon: Shield,
     title: "Commission de sécurité",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1561715608-5659baeccfb4?w=800&q=80",
     description:
       "Préparation complète au passage de la commission de sécurité pour les ERP. Audit préalable, levée des non-conformités, accompagnement le jour J.",
     items: [
@@ -112,7 +112,7 @@ export default function MaintenancePage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#1B3A6B] py-24 md:py-32">
         <Image
-          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&q=80"
           alt="Maintenance bâtiment BATIMTEC"
           fill
           priority

@@ -48,7 +48,7 @@ export default function AProposPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#1B3A6B] py-24 md:py-28">
         <Image
-          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1771918050103-57b5de00d960?w=1920&q=80"
           alt="Équipe BATIMTEC"
           fill
           priority

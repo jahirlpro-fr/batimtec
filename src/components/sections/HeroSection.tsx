@@ -30,7 +30,7 @@ export default function HeroSection() {
     >
       {/* Background image */}
       <Image
-        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
+        src="https://images.unsplash.com/photo-1676630656246-3047520adfdf?w=1920&q=80"
         alt="Chantier de construction BATIMTEC"
         fill
         priority
