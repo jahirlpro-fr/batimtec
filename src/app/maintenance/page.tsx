@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ButtonLink, ButtonAnchor } from "@/components/ui/button-link";
+import { ButtonLink } from "@/components/ui/button-link";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
-import { CheckCircle, ArrowRight, Phone, FileText, ClipboardCheck, Shield, Clock, Bell, Wrench } from "lucide-react";
+import { CheckCircle, ArrowRight, Phone, FileText, ClipboardCheck, Shield, Clock, Bell } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Maintenance de bâtiment — BATIMTEC",
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 const poles = [
   {
+    slug: "contrats",
     icon: FileText,
     title: "Contrats de maintenance",
     image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
@@ -27,6 +28,7 @@ const poles = [
     ],
   },
   {
+    slug: "controles",
     icon: ClipboardCheck,
     title: "Contrôles techniques réglementaires",
     image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80",
@@ -42,6 +44,7 @@ const poles = [
     ],
   },
   {
+    slug: "commission",
     icon: Shield,
     title: "Commission de sécurité",
     image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80",
@@ -86,7 +89,7 @@ const formules = [
   {
     nom: "Curative",
     couleur: "border-blue-200",
-    description: "Interventions réactives dès qu&apos;une panne ou défaillance est signalée.",
+    description: "Interventions réactives dès qu'une panne ou défaillance est signalée.",
     avantages: [
       "Astreinte 24h/24 – 7j/7",
       "Délai d'intervention < 4h",
@@ -101,7 +104,6 @@ const chiffres = [
   { icon: Clock, valeur: "24h", label: "Délai d'intervention max" },
   { icon: Bell, valeur: "24/7", label: "Astreinte disponible" },
   { icon: CheckCircle, valeur: "500+", label: "Chantiers réalisés" },
-  { icon: Wrench, valeur: "38 €/h", label: "Tarif transparent HT" },
 ];
 
 export default function MaintenancePage() {
@@ -118,37 +120,28 @@ export default function MaintenancePage() {
           sizes="100vw"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 bg-[#C9A84C]/15 border border-[#C9A84C]/35 text-[#C9A84C] px-4 py-2 rounded-full text-sm font-semibold mb-7">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
-            Pôle Maintenance
-          </div>
           <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6 max-w-3xl">
             Contrats, contrôles techniques<br />
             <span className="text-[#C9A84C]">& commission de sécurité</span>
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mb-10 leading-relaxed">
             BATIMTEC assure la maintenance complète de vos bâtiments et vous accompagne
-            dans tous vos contrôles réglementaires. Tarif transparent :{" "}
-            <strong className="text-white">38 €/h HT</strong>.
+            dans tous vos contrôles réglementaires. Devis gratuit sous{" "}
+            <strong className="text-white">24h</strong>.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <ButtonLink
               href="/contact"
               size="lg"
-              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#E8D08A] font-bold"
+              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white font-bold"
             >
               Demander un contrat
               <ArrowRight className="ml-2 w-5 h-5" />
             </ButtonLink>
-            <ButtonAnchor
-              href="tel:+33986669610"
-              size="lg"
-              variant="outline"
-              className="border-white/60 text-white hover:bg-white/10 font-semibold"
-            >
-              <Phone className="mr-2 w-5 h-5" />
+            <span className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors cursor-default select-all">
+              <Phone className="w-5 h-5 shrink-0" />
               09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-            </ButtonAnchor>
+            </span>
           </div>
         </div>
       </section>
@@ -156,7 +149,7 @@ export default function MaintenancePage() {
       {/* Chiffres */}
       <section className="bg-white border-b py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
             {chiffres.map((c) => {
               const Icon = c.icon;
               return (
@@ -188,7 +181,8 @@ export default function MaintenancePage() {
               const Icon = pole.icon;
               const isEven = i % 2 === 0;
               return (
-                <ScrollReveal key={pole.title} delay={0.1}>
+                <div key={pole.title} id={pole.slug} className="scroll-mt-20">
+                <ScrollReveal delay={0.1}>
                   <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isEven ? "" : "lg:[&>*:first-child]:order-2"}`}>
                     <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden group">
                       <Image
@@ -221,6 +215,7 @@ export default function MaintenancePage() {
                     </div>
                   </div>
                 </ScrollReveal>
+                </div>
               );
             })}
           </div>
@@ -228,7 +223,7 @@ export default function MaintenancePage() {
       </section>
 
       {/* Formules */}
-      <section className="py-20 bg-gray-50">
+      <section id="interventions" className="scroll-mt-20 py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-14">
             <h2 className="text-3xl font-black text-[#1B3A6B] mb-3">Choisissez votre formule</h2>
@@ -259,8 +254,7 @@ export default function MaintenancePage() {
                   </ul>
                   <ButtonLink
                     href="/contact"
-                    className={`w-full justify-center font-semibold ${f.highlight ? "bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#E8D08A]" : ""}`}
-                    variant={f.highlight ? "default" : "outline"}
+                    className="w-full justify-center font-semibold bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white transition-colors"
                   >
                     Demander un devis
                   </ButtonLink>
@@ -279,23 +273,18 @@ export default function MaintenancePage() {
           <p className="text-white/65 mb-10 text-lg">
             Notre équipe répond sous 24h · Astreinte disponible pour les clients sous contrat
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <ButtonAnchor
-              href="tel:+33986669610"
-              size="lg"
-              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#E8D08A] font-bold"
-            >
-              <Phone className="mr-2 w-5 h-5" />
-              09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-            </ButtonAnchor>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <ButtonLink
               href="/contact"
               size="lg"
-              variant="outline"
-              className="border-white/60 text-white hover:bg-white/10"
+              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white font-bold transition-colors"
             >
               Nous contacter
             </ButtonLink>
+            <span className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors cursor-default select-all">
+              <Phone className="w-5 h-5 shrink-0" />
+              09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
+            </span>
           </div>
         </div>
       </section>

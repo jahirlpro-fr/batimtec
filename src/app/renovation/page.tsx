@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ButtonLink, ButtonAnchor } from "@/components/ui/button-link";
+import { ButtonLink } from "@/components/ui/button-link";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { CheckCircle, ArrowRight, Phone, Home, PaintBucket, Layers, ChefHat, Droplets, Maximize } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Rénovation — BATIMTEC",
   description:
-    "Rénovation de sols, peinture, cuisine, salle de bain et agrandissement partout en France. Tarif transparent 38 €/h HT. Devis gratuit BATIMTEC sous 24h.",
+    "Rénovation de sols, peinture, cuisine, salle de bain et agrandissement partout en France. Devis gratuit BATIMTEC sous 24h.",
 };
 
 const prestations = [
   {
+    slug: "sols",
     icon: Layers,
     title: "Sols & revêtements",
     image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
@@ -27,6 +28,7 @@ const prestations = [
     ],
   },
   {
+    slug: "peinture",
     icon: PaintBucket,
     title: "Peinture & décoration",
     image: "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=800&q=80",
@@ -42,6 +44,7 @@ const prestations = [
     ],
   },
   {
+    slug: "cuisine",
     icon: ChefHat,
     title: "Cuisine",
     image: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=800&q=80",
@@ -57,6 +60,7 @@ const prestations = [
     ],
   },
   {
+    slug: "salle-de-bain",
     icon: Droplets,
     title: "Salle de bain",
     image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80",
@@ -72,6 +76,7 @@ const prestations = [
     ],
   },
   {
+    slug: "agrandissement",
     icon: Maximize,
     title: "Agrandissement",
     image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
@@ -88,14 +93,6 @@ const prestations = [
   },
 ];
 
-const etapes = [
-  { num: "01", titre: "Visite gratuite", desc: "Un expert se déplace pour évaluer votre projet et les contraintes techniques." },
-  { num: "02", titre: "Devis sous 24h", desc: "Devis détaillé et transparent. Aucune surprise, aucun coût caché." },
-  { num: "03", titre: "Planification", desc: "Planning de chantier défini en accord avec vos contraintes et disponibilités." },
-  { num: "04", titre: "Réalisation", desc: "Nos artisans interviennent avec soin, dans le respect des délais et des normes." },
-  { num: "05", titre: "Réception", desc: "Visite de réception avec vous pour valider les travaux. Levée des réserves assurée." },
-];
-
 export default function RenovationPage() {
   return (
     <>
@@ -110,37 +107,27 @@ export default function RenovationPage() {
           sizes="100vw"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 bg-[#C9A84C]/15 border border-[#C9A84C]/35 text-[#C9A84C] px-4 py-2 rounded-full text-sm font-semibold mb-7">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
-            Pôle Rénovation
-          </div>
           <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6 max-w-3xl">
             Sols, peinture, cuisine,<br />
             <span className="text-[#C9A84C]">salle de bain & agrandissement</span>
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mb-10 leading-relaxed">
-            BATIMTEC transforme vos espaces avec des rénovations clé en main. Tarif unique{" "}
-            <strong className="text-white">38 €/h HT</strong>. Devis gratuit sous{" "}
+            BATIMTEC transforme vos espaces avec des rénovations clé en main. Devis gratuit sous{" "}
             <strong className="text-white">24h</strong>, partout en France.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <ButtonLink
               href="/contact"
               size="lg"
-              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#E8D08A] font-bold"
+              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white font-bold"
             >
               Démarrer mon projet
               <ArrowRight className="ml-2 w-5 h-5" />
             </ButtonLink>
-            <ButtonAnchor
-              href="tel:+33986669610"
-              size="lg"
-              variant="outline"
-              className="border-white/60 text-white hover:bg-white/10 font-semibold"
-            >
-              <Phone className="mr-2 w-5 h-5" />
+            <span className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors cursor-default select-all">
+              <Phone className="w-5 h-5 shrink-0" />
               09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-            </ButtonAnchor>
+            </span>
           </div>
         </div>
       </section>
@@ -160,7 +147,8 @@ export default function RenovationPage() {
               const Icon = p.icon;
               const isEven = i % 2 === 0;
               return (
-                <ScrollReveal key={p.title} delay={0.1}>
+                <div key={p.title} id={p.slug} className="scroll-mt-20">
+                <ScrollReveal delay={0.1}>
                   <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isEven ? "" : "lg:[&>*:first-child]:order-2"}`}>
                     <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden group">
                       <Image
@@ -193,33 +181,9 @@ export default function RenovationPage() {
                     </div>
                   </div>
                 </ScrollReveal>
+                </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Étapes */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-14">
-            <h2 className="text-3xl font-black text-[#1B3A6B] mb-3">Notre méthode</h2>
-            <p className="text-gray-500 max-w-lg mx-auto">
-              Un accompagnement structuré de la visite à la réception.
-            </p>
-          </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-5 gap-8">
-            {etapes.map((e, i) => (
-              <ScrollReveal key={e.num} delay={i * 0.1}>
-                <div className="text-center">
-                  <div className="w-14 h-14 rounded-full bg-[#1B3A6B] text-white flex items-center justify-center text-xl font-black mx-auto mb-4">
-                    {e.num}
-                  </div>
-                  <h3 className="font-bold text-[#1B3A6B] mb-2">{e.titre}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{e.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
           </div>
         </div>
       </section>
@@ -230,25 +194,20 @@ export default function RenovationPage() {
           <Home className="w-12 h-12 text-[#C9A84C] mx-auto mb-6" />
           <h2 className="text-4xl font-black mb-4">Prêt à rénover votre bien ?</h2>
           <p className="text-white/65 mb-10 text-lg">
-            Visite gratuite · Devis sous 24h · 38 €/h HT · Toute la France
+            Visite gratuite · Devis sous 24h · Toute la France
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <ButtonLink
               href="/contact"
               size="lg"
-              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#E8D08A] font-bold"
+              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white font-bold"
             >
               Demander un devis gratuit
             </ButtonLink>
-            <ButtonAnchor
-              href="tel:+33986669610"
-              size="lg"
-              variant="outline"
-              className="border-white/60 text-white hover:bg-white/10"
-            >
-              <Phone className="mr-2 w-5 h-5" />
+            <span className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors cursor-default select-all">
+              <Phone className="w-5 h-5 shrink-0" />
               09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-            </ButtonAnchor>
+            </span>
           </div>
         </div>
       </section>

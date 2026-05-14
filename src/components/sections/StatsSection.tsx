@@ -3,10 +3,10 @@
 import { CountUp } from "@/components/animations/CountUp";
 
 const stats = [
-  { to: 15, suffix: " ans", label: "D'expérience", desc: "au service du bâtiment" },
-  { to: 500, suffix: "+", label: "Chantiers réalisés", desc: "partout en France" },
-  { to: 38, prefix: "", suffix: " €/h HT", label: "Tarif transparent", desc: "hors déplacement & fournitures" },
-  { to: 24, suffix: "h max", label: "Délai d'intervention", desc: "pour toute demande urgente" },
+  { to: 15, prefix: "", suffix: " ans", label: "D'expérience", desc: "au service du bâtiment" },
+  { to: 500, prefix: "", suffix: "+", label: "Chantiers réalisés", desc: "partout en France" },
+  { to: 4, prefix: "", suffix: " pôles", label: "Corps de métier", desc: "Travaux · Rénovation · Maintenance · CVC" },
+  { to: 24, prefix: "", suffix: "h max", label: "Délai d'intervention", desc: "pour toute demande urgente" },
 ];
 
 export default function StatsSection() {

@@ -196,15 +196,21 @@ export default function ContactForm() {
             />
           </div>
 
-          <div className="flex items-center justify-between pt-1">
-            <p className="text-xs text-gray-400">
-              <span className="text-red-500">*</span> Champs obligatoires
-            </p>
+          <p className="text-xs text-gray-400 leading-relaxed">
+            <span className="text-red-500">*</span> Champs obligatoires.{" "}
+            Vos données sont utilisées uniquement pour répondre à votre demande, conformément à notre{" "}
+            <a href="/mentions-legales" className="underline hover:text-gray-600 transition-colors">
+              politique de confidentialité
+            </a>
+            .
+          </p>
+
+          <div className="flex justify-end pt-1">
             <Button
               type="submit"
               size="lg"
               disabled={status === "loading"}
-              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#E8D08A] font-bold"
+              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white font-bold transition-colors"
             >
               {status === "loading" ? (
                 <>

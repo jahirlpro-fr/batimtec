@@ -5,7 +5,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Phone, ArrowRight, ChevronDown } from "lucide-react";
-import { ButtonLink, ButtonAnchor } from "@/components/ui/button-link";
+import { ButtonLink } from "@/components/ui/button-link";
 
 gsap.registerPlugin(useGSAP);
 
@@ -46,12 +46,6 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24 md:py-32">
         <div className="max-w-2xl xl:max-w-3xl">
-          {/* Badge */}
-          <div className="hero-badge inline-flex items-center gap-2 bg-[#C9A84C]/15 border border-[#C9A84C]/35 text-[#C9A84C] px-4 py-2 rounded-full text-sm font-semibold mb-7 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] animate-pulse" />
-            Orléans &amp; toute la France · SIRET 979&nbsp;251&nbsp;485&nbsp;00012
-          </div>
-
           {/* H1 */}
           <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.04] mb-7 tracking-tight">
             Votre expert<br />
@@ -62,8 +56,6 @@ export default function HeroSection() {
           {/* Subtitle */}
           <p className="hero-subtitle text-lg md:text-xl text-white/75 mb-10 max-w-xl leading-relaxed">
             Travaux, rénovation, maintenance — BATIMTEC intervient partout en France.
-            Tarif transparent :{" "}
-            <strong className="text-white font-semibold">38&nbsp;€&nbsp;HT/h</strong>.
             Devis gratuit sous{" "}
             <strong className="text-white font-semibold">24h</strong>.
           </p>
@@ -73,26 +65,20 @@ export default function HeroSection() {
             <ButtonLink
               href="/contact"
               size="lg"
-              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#E8D08A] font-bold text-base shadow-lg shadow-[#C9A84C]/20"
+              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white font-bold text-base shadow-lg shadow-[#C9A84C]/20 transition-colors"
             >
               Devis gratuit sous 24h
               <ArrowRight className="ml-2 w-5 h-5" />
             </ButtonLink>
-            <ButtonAnchor
-              href="tel:+33986669610"
-              size="lg"
-              variant="outline"
-              className="border-white/60 text-white hover:bg-white/10 font-semibold text-base backdrop-blur-sm"
-            >
-              <Phone className="mr-2 w-5 h-5" />
+            <span className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors cursor-default select-all">
+              <Phone className="w-5 h-5 shrink-0" />
               09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-            </ButtonAnchor>
+            </span>
           </div>
 
           {/* Trust stats */}
           <div className="flex flex-wrap gap-x-8 gap-y-4 border-t border-white/15 pt-8">
             {[
-              { value: "38 €/h HT", label: "Tarif transparent" },
               { value: "24h", label: "Délai de réponse" },
               { value: "Toute la France", label: "Zone d'intervention" },
               { value: "15 ans", label: "D'expérience" },

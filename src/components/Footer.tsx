@@ -1,11 +1,14 @@
 import Link from "next/link";
-import { HardHat, MapPin, Phone, Mail, Clock } from "lucide-react";
+import Image from "next/image";
+import { Phone, Mail } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const services = [
   { href: "/travaux", label: "Travaux du bâtiment" },
   { href: "/renovation", label: "Rénovation" },
   { href: "/maintenance", label: "Maintenance technique" },
+  { href: "/cvc", label: "CVC — Chauffage & Clim" },
+  { href: "/a-propos", label: "À propos" },
   { href: "/contact", label: "Demander un devis" },
 ];
 
@@ -16,23 +19,26 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-white/20">
-                <HardHat className="w-5 h-5" />
-              </div>
-              <span className="text-xl font-black tracking-tight">BATIMTEC</span>
+            <div className="flex items-center mb-4">
+              <Image
+                src="/logo-c-Batimtec.png"
+                alt="BATIMTEC"
+                width={140}
+                height={40}
+                className="h-8 w-auto object-contain"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
             </div>
             <p className="text-white/65 text-sm leading-relaxed mb-4">
               Votre expert bâtiment en Centre-Val de Loire et toute la France.
-              Travaux, rénovation, maintenance — tarif transparent à 38&nbsp;€/h&nbsp;HT.
+              Travaux, rénovation, maintenance.
             </p>
-            <p className="text-white/40 text-xs">SIRET&nbsp;: 979&nbsp;251&nbsp;485&nbsp;00012</p>
           </div>
 
           {/* Services */}
           <div>
             <h3 className="font-bold mb-4 text-xs uppercase tracking-widest text-white/50">
-              Nos services
+              Navigation
             </h3>
             <ul className="space-y-2">
               {services.map((s) => (
@@ -54,31 +60,23 @@ export default function Footer() {
               Contact
             </h3>
             <ul className="space-y-3 text-sm text-white/70">
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-[#C9A84C]" />
-                <span>15 rue de l&apos;Écu d&apos;or<br />45000 Orléans</span>
-              </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 shrink-0 text-[#C9A84C]" />
-                <a href="tel:+33986669610" className="hover:text-[#C9A84C] transition-colors font-semibold">
-                  09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 shrink-0 text-[#C9A84C]" />
-                <a href="tel:+33623080105" className="hover:text-[#C9A84C] transition-colors">
+                <span className="hover:text-[#C9A84C] transition-colors font-semibold cursor-default select-all">
                   06&nbsp;23&nbsp;08&nbsp;01&nbsp;05
-                </a>
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="w-4 h-4 shrink-0 text-[#C9A84C]" />
+                <span className="hover:text-[#C9A84C] transition-colors cursor-default select-all">
+                  07&nbsp;19&nbsp;34&nbsp;57&nbsp;68
+                </span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 shrink-0 text-[#C9A84C]" />
                 <a href="mailto:contact@batimtec.com" className="hover:text-[#C9A84C] transition-colors">
                   contact@batimtec.com
                 </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Clock className="w-4 h-4 shrink-0 text-[#C9A84C]" />
-                <span>Lun – Ven : 8h – 18h · Sam : 9h–12h</span>
               </li>
             </ul>
           </div>
@@ -88,7 +86,13 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-white/40">
           <p>© {new Date().getFullYear()} BATIMTEC SAS — Loukou GNAMIAN. Tous droits réservés.</p>
-          <p>Orléans, Centre-Val de Loire · Toute la France</p>
+          <div className="flex items-center gap-4">
+            <Link href="/mentions-legales" className="hover:text-white/70 transition-colors">
+              Mentions légales
+            </Link>
+            <span>·</span>
+            <span>Orléans, Centre-Val de Loire</span>
+          </div>
         </div>
       </div>
     </footer>

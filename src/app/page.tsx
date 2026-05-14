@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ButtonLink, ButtonAnchor } from "@/components/ui/button-link";
+import { ButtonLink } from "@/components/ui/button-link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
-import HeroSection from "@/components/sections/HeroSection";
+import HeroAccordion from "@/components/HeroAccordion";
 import StatsSection from "@/components/sections/StatsSection";
 import {
   Wrench, HardHat, Home, CheckCircle, Phone, ArrowRight,
@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "BATIMTEC — Maintenance, Travaux & Rénovation à Orléans",
   description:
-    "BATIMTEC, SAS dirigée par Loukou GNAMIAN. Expert en maintenance technique, travaux et rénovation à Orléans et partout en France. 38 €/h HT. Devis gratuit sous 24h.",
+    "BATIMTEC, SAS dirigée par Loukou GNAMIAN. Expert en maintenance technique, travaux et rénovation à Orléans et partout en France. Devis gratuit sous 24h.",
   keywords: ["maintenance bâtiment", "travaux", "rénovation", "Orléans", "Centre Val de Loire", "BATIMTEC"],
 };
 
@@ -46,10 +46,17 @@ const services = [
   },
 ];
 
+const etapes = [
+  { num: "01", titre: "Visite gratuite", desc: "Un expert se déplace pour évaluer votre projet et les contraintes techniques." },
+  { num: "02", titre: "Devis sous 24h", desc: "Devis détaillé et transparent. Aucune surprise, aucun coût caché." },
+  { num: "03", titre: "Planification", desc: "Planning de chantier défini en accord avec vos contraintes et disponibilités." },
+  { num: "04", titre: "Réalisation", desc: "Nos artisans interviennent avec soin, dans le respect des délais et des normes." },
+  { num: "05", titre: "Réception", desc: "Visite de réception avec vous pour valider les travaux. Levée des réserves assurée." },
+];
+
 const advantages = [
   { icon: Shield, title: "Assurance & garanties", desc: "Garantie décennale, assurance RC Pro, travaux garantis" },
   { icon: Clock, title: "Réactivité 24h", desc: "Devis sous 24h, intervention rapide sur tout le territoire" },
-  { icon: Zap, title: "Tarif transparent", desc: "38 € HT/h — hors déplacement et fournitures, sans surprise" },
   { icon: Hammer, title: "Multi-corps de métier", desc: "Électricité, plomberie, menuiserie et plus sous un seul contrat" },
   { icon: MapPin, title: "Toute la France", desc: "Implantés à Orléans, nous intervenons dans tout le pays" },
   { icon: Leaf, title: "Matériaux certifiés", desc: "Fournitures de qualité, artisans qualifiés et certifiés" },
@@ -79,67 +86,33 @@ const testimonials = [
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      <HeroAccordion />
       <StatsSection />
 
-      {/* Services */}
-      <section className="py-24 bg-white">
+      {/* Notre méthode */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-16">
-            <Badge className="mb-4 bg-[#eef2f8] text-[#1B3A6B] border-0 font-semibold">Nos 3 pôles</Badge>
-            <h2 className="text-4xl md:text-5xl font-black text-[#1B3A6B] mb-4 tracking-tight">
-              Une expertise complète
+          <ScrollReveal className="text-center mb-14">
+            <Badge className="mb-4 bg-[#eef2f8] text-[#1B3A6B] border-0 font-semibold">Notre méthode</Badge>
+            <h2 className="text-3xl md:text-4xl font-black text-[#1B3A6B] mb-3 tracking-tight">
+              De la visite à la réception
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Du dépannage d&apos;urgence au contrat de maintenance annuel — BATIMTEC
-              couvre l&apos;ensemble de vos besoins bâtiment.
+            <p className="text-muted-foreground max-w-lg mx-auto">
+              Un accompagnement structuré à chaque étape de votre projet.
             </p>
           </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((s, i) => {
-              const Icon = s.icon;
-              return (
-                <ScrollReveal key={s.title} delay={i * 0.12}>
-                  <Card className="group overflow-hidden border-0 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                    {/* Image */}
-                    <div className="relative h-52 overflow-hidden">
-                      <Image
-                        src={s.image}
-                        alt={s.imageAlt}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1B3A6B]/80 to-transparent" />
-                      <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                        <div className="w-9 h-9 rounded-lg bg-[#C9A84C] flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-[#1B3A6B]" />
-                        </div>
-                        <h3 className="text-white text-xl font-black">{s.title}</h3>
-                      </div>
-                    </div>
-                    <CardContent className="p-6">
-                      <ul className="space-y-2 mb-6">
-                        {s.items.map((item) => (
-                          <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <CheckCircle className="w-4 h-4 text-[#C9A84C] shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                      <ButtonLink
-                        href={s.href}
-                        variant="outline"
-                        className="w-full justify-center border-[#1B3A6B] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white transition-colors"
-                      >
-                        En savoir plus <ArrowRight className="ml-2 w-4 h-4" />
-                      </ButtonLink>
-                    </CardContent>
-                  </Card>
-                </ScrollReveal>
-              );
-            })}
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-8">
+            {etapes.map((e, i) => (
+              <ScrollReveal key={e.num} delay={i * 0.1}>
+                <div className="text-center">
+                  <div className="w-14 h-14 rounded-full bg-[#1B3A6B] text-white flex items-center justify-center text-xl font-black mx-auto mb-4">
+                    {e.num}
+                  </div>
+                  <h3 className="font-bold text-[#1B3A6B] mb-2">{e.titre}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{e.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
@@ -268,11 +241,9 @@ export default function HomePage() {
             <ScrollReveal delay={0.15} className="bg-[#1B3A6B] rounded-2xl p-8 text-white">
               <p className="text-[#C9A84C] font-semibold text-sm uppercase tracking-widest mb-4">Coordonnées</p>
               <div className="space-y-3 text-sm">
-                <div><span className="text-white/50">Adresse</span><br /><strong>15 rue de l&apos;Écu d&apos;or, 45000 Orléans</strong></div>
-                <div><span className="text-white/50">Téléphone fixe</span><br /><a href="tel:+33986669610" className="font-bold text-[#C9A84C]">09 86 66 96 10</a></div>
-                <div><span className="text-white/50">Mobile</span><br /><a href="tel:+33623080105" className="font-bold text-[#C9A84C]">06 23 08 01 05</a></div>
+                <div><span className="text-white/50">Mobile</span><br /><span className="font-bold text-[#C9A84C] hover:text-white transition-colors cursor-default select-all">06 23 08 01 05</span></div>
+                <div><span className="text-white/50">Urgence / Astreinte 24/7</span><br /><span className="font-bold text-[#C9A84C] hover:text-white transition-colors cursor-default select-all">07 19 34 57 68</span></div>
                 <div><span className="text-white/50">Email</span><br /><a href="mailto:contact@batimtec.com" className="font-bold text-[#C9A84C]">contact@batimtec.com</a></div>
-                <div><span className="text-white/50">SIRET</span><br /><strong>979 251 485 00012</strong></div>
               </div>
             </ScrollReveal>
           </div>
@@ -288,27 +259,21 @@ export default function HomePage() {
               <span className="text-[#C9A84C]">dès aujourd&apos;hui</span>
             </h2>
             <p className="text-white/65 text-lg mb-10 max-w-xl mx-auto">
-              Devis gratuit sous 24h. Tarif fixe à 38&nbsp;€&nbsp;HT/h.
-              Pas de frais cachés, pas de surprise.
+              Devis gratuit sous 24h. Pas de frais cachés, pas de surprise.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <ButtonLink
                 href="/contact"
                 size="lg"
-                className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#E8D08A] font-bold text-base shadow-lg"
+                className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white font-bold text-base shadow-lg transition-colors"
               >
                 Demander un devis gratuit
                 <ArrowRight className="ml-2 w-5 h-5" />
               </ButtonLink>
-              <ButtonAnchor
-                href="tel:+33986669610"
-                size="lg"
-                variant="outline"
-                className="border-white/50 text-white hover:bg-white/10 font-semibold text-base"
-              >
-                <Phone className="mr-2 w-5 h-5" />
-                09 86 66 96 10
-              </ButtonAnchor>
+              <span className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors cursor-default select-all">
+                <Phone className="w-5 h-5 shrink-0" />
+                09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
+              </span>
             </div>
           </ScrollReveal>
         </div>

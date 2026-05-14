@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ButtonLink, ButtonAnchor } from "@/components/ui/button-link";
+import { ButtonLink } from "@/components/ui/button-link";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { CheckCircle, ArrowRight, Phone, Zap, Droplets, Hammer, Wrench, Settings, HardHat } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Travaux du bâtiment — BATIMTEC",
   description:
-    "BATIMTEC réalise tous vos travaux : électricité, plomberie, menuiserie, dépannage et multiservices. Tarif transparent 38 €/h HT. Devis gratuit sous 24h.",
+    "BATIMTEC réalise tous vos travaux : électricité, plomberie, menuiserie, dépannage et multiservices. Devis gratuit sous 24h.",
 };
 
 const poles = [
   {
+    slug: "electricite",
     icon: Zap,
     title: "Électricité",
     image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
@@ -27,6 +28,7 @@ const poles = [
     ],
   },
   {
+    slug: "plomberie",
     icon: Droplets,
     title: "Plomberie",
     image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
@@ -42,6 +44,7 @@ const poles = [
     ],
   },
   {
+    slug: "menuiserie",
     icon: Hammer,
     title: "Menuiserie",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
@@ -57,6 +60,7 @@ const poles = [
     ],
   },
   {
+    slug: "depannage",
     icon: Wrench,
     title: "Dépannage",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
@@ -72,6 +76,7 @@ const poles = [
     ],
   },
   {
+    slug: "multiservices",
     icon: Settings,
     title: "Multiservices",
     image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
@@ -90,7 +95,6 @@ const poles = [
 
 const engagements = [
   "Devis gratuit sous 24h",
-  "Tarif unique 38 €/h HT",
   "Artisans qualifiés & assurés",
   "Intervention toute la France",
   "Matériaux certifiés NF",
@@ -113,37 +117,27 @@ export default function TravauxPage() {
           sizes="100vw"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 bg-[#C9A84C]/15 border border-[#C9A84C]/35 text-[#C9A84C] px-4 py-2 rounded-full text-sm font-semibold mb-7">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C]" />
-            Pôle Travaux
-          </div>
           <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6 max-w-3xl">
             Électricité, plomberie,<br />
             <span className="text-[#C9A84C]">menuiserie & dépannage</span>
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mb-10 leading-relaxed">
-            BATIMTEC intervient sur tous corps de métier du bâtiment. Tarif transparent à{" "}
-            <strong className="text-white">38 €/h HT</strong> — hors déplacement et fournitures.
-            Devis gratuit sous <strong className="text-white">24h</strong>.
+            BATIMTEC intervient sur tous corps de métier du bâtiment. Devis gratuit sous{" "}
+            <strong className="text-white">24h</strong>, partout en France.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <ButtonLink
               href="/contact"
               size="lg"
-              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#E8D08A] font-bold"
+              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white font-bold"
             >
               Demander un devis gratuit
               <ArrowRight className="ml-2 w-5 h-5" />
             </ButtonLink>
-            <ButtonAnchor
-              href="tel:+33986669610"
-              size="lg"
-              variant="outline"
-              className="border-white/60 text-white hover:bg-white/10 font-semibold"
-            >
-              <Phone className="mr-2 w-5 h-5" />
+            <span className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors cursor-default select-all">
+              <Phone className="w-5 h-5 shrink-0" />
               09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-            </ButtonAnchor>
+            </span>
           </div>
         </div>
       </section>
@@ -163,7 +157,8 @@ export default function TravauxPage() {
               const Icon = pole.icon;
               const isEven = i % 2 === 0;
               return (
-                <ScrollReveal key={pole.title} delay={0.1}>
+                <div key={pole.title} id={pole.slug} className="scroll-mt-20">
+                <ScrollReveal delay={0.1}>
                   <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isEven ? "" : "lg:[&>*:first-child]:order-2"}`}>
                     {/* Image */}
                     <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden group">
@@ -198,6 +193,7 @@ export default function TravauxPage() {
                     </div>
                   </div>
                 </ScrollReveal>
+                </div>
               );
             })}
           </div>
@@ -232,25 +228,20 @@ export default function TravauxPage() {
           <HardHat className="w-12 h-12 text-[#C9A84C] mx-auto mb-6" />
           <h2 className="text-4xl font-black mb-4">Prêt à démarrer votre chantier ?</h2>
           <p className="text-white/65 mb-10 text-lg">
-            Devis gratuit sous 24h · 38 €/h HT · Toute la France
+            Devis gratuit sous 24h · Toute la France
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <ButtonLink
               href="/contact"
               size="lg"
-              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#E8D08A] font-bold"
+              className="bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white font-bold"
             >
               Demander un devis gratuit
             </ButtonLink>
-            <ButtonAnchor
-              href="tel:+33986669610"
-              size="lg"
-              variant="outline"
-              className="border-white/60 text-white hover:bg-white/10"
-            >
-              <Phone className="mr-2 w-5 h-5" />
+            <span className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors cursor-default select-all">
+              <Phone className="w-5 h-5 shrink-0" />
               09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-            </ButtonAnchor>
+            </span>
           </div>
         </div>
       </section>
