@@ -75,10 +75,10 @@ const poles: Pole[] = [
     href: "/cvc",
     specs: [
       { nom: "Chauffage", desc: "Installation et entretien de systèmes de chauffage central et plancher chauffant.", image: "https://plus.unsplash.com/premium_photo-1664298059861-1560b39fb890?w=1920&q=80", href: "/cvc#chauffage" },
-      { nom: "Ventilation", desc: "VMC simple et double flux, extraction, renouvellement d'air réglementaire.", image: "https://images.unsplash.com/photo-1642979430180-e676c2235ce2?w=1920&q=80", href: "/cvc#ventilation" },
+      { nom: "Ventilation", desc: "VMC simple et double flux, extraction, renouvellement d'air réglementaire.", image: "https://images.unsplash.com/photo-1734516893388-db40cbdd4d20?w=1920&q=80", href: "/cvc#ventilation" },
       { nom: "Climatisation", desc: "Split system, multi-split, réversible. Installation certifiée et maintenance annuelle.", image: "https://plus.unsplash.com/premium_photo-1683134512538-7b390d0adc9e?w=1920&q=80", href: "/cvc#climatisation" },
       { nom: "Pompe à chaleur", desc: "PAC air/air et air/eau. Installation, mise en service et contrat d'entretien.", image: "https://images.unsplash.com/photo-1700124113583-81aa99ea2aa2?w=1920&q=80", href: "/cvc#pac" },
-      { nom: "Chaudière", desc: "Chaudière gaz, fioul, bois. Entretien annuel obligatoire et dépannage express.", image: "https://plus.unsplash.com/premium_photo-1663047170515-66632d2a374d?w=1920&q=80", href: "/cvc#chaudiere" },
+      { nom: "Chaudière", desc: "Chaudière gaz, fioul, bois. Entretien annuel obligatoire et dépannage express.", image: "https://plus.unsplash.com/premium_photo-1664298589198-b15ff5382648?w=1920&q=80", href: "/cvc#chaudiere" },
     ],
   },
 ];

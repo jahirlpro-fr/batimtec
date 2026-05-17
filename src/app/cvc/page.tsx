@@ -30,7 +30,8 @@ const specialites = [
     slug: "ventilation",
     icon: Wind,
     title: "Ventilation",
-    image: "https://images.unsplash.com/photo-1642979430180-e676c2235ce2?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1734516893388-db40cbdd4d20?w=800&q=80",
+    objectPosition: "top",
     description: "Pose et maintenance de VMC simple ou double flux. Renouvellement d'air réglementaire pour logements, bureaux et ERP.",
     items: [
       "VMC simple flux autoréglable",
@@ -75,7 +76,7 @@ const specialites = [
     slug: "chaudiere",
     icon: Thermometer,
     title: "Chaudière",
-    image: "https://plus.unsplash.com/premium_photo-1663047170515-66632d2a374d?w=800&q=80",
+    image: "https://plus.unsplash.com/premium_photo-1664298589198-b15ff5382648?w=800&q=80",
     description: "Installation de chaudières à condensation gaz, fioul ou biomasse. Entretien annuel obligatoire et dépannage toutes marques.",
     items: [
       "Chaudière à condensation gaz",
@@ -174,6 +175,7 @@ export default function CVCPage() {
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 1024px) 100vw, 50vw"
+                        style={spec.objectPosition ? { objectPosition: spec.objectPosition } : undefined}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#1B3A6B]/60 to-transparent" />
                       <div className="absolute bottom-6 left-6 flex items-center gap-3">
