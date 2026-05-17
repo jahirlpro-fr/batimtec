@@ -31,7 +31,7 @@ const poles = [
     slug: "plomberie",
     icon: Droplets,
     title: "Plomberie",
-    image: "https://images.unsplash.com/photo-1613849925496-e6d683c091f1?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1676210134188-4c05dd172f89?w=800&q=80",
     description:
       "Entretien et installation de réseaux eau chaude/froide, sanitaires, robinetterie, chauffe-eau, dépannage urgent et traitement de fuites.",
     items: [
@@ -47,7 +47,7 @@ const poles = [
     slug: "menuiserie",
     icon: Hammer,
     title: "Menuiserie",
-    image: "https://images.unsplash.com/photo-1631396326838-de37e5f8bcbc?w=800&q=80",
+    image: "https://plus.unsplash.com/premium_photo-1683140920401-36b43c727bb5?w=800&q=80",
     description:
       "Pose et remplacement de portes, fenêtres, volets, parquet. Travaux d'aménagement intérieur, placards, cloisons et escaliers.",
     items: [
@@ -63,7 +63,7 @@ const poles = [
     slug: "depannage",
     icon: Wrench,
     title: "Dépannage",
-    image: "https://images.unsplash.com/photo-1774977863604-59f4e6d37a90?w=800&q=80",
+    image: "https://plus.unsplash.com/premium_photo-1683134531395-1ebecbf3440c?w=800&q=80",
     description:
       "Intervention rapide sous 24h pour toute urgence : fuite, panne électrique, serrure, vitre cassée. Disponible partout en France.",
     items: [

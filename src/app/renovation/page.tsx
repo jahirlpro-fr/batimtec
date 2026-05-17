@@ -15,7 +15,7 @@ const prestations = [
     slug: "sols",
     icon: Layers,
     title: "Sols & revêtements",
-    image: "https://images.unsplash.com/photo-1548268364-3acee266b695?w=800&q=80",
+    image: "https://plus.unsplash.com/premium_photo-1683133861653-aef45a198ec1?w=800&q=80",
     description:
       "Pose de parquet massif, stratifié, carrelage, vinyle et moquette. Ragréage, préparation des supports et finitions soignées.",
     items: [
@@ -31,7 +31,7 @@ const prestations = [
     slug: "peinture",
     icon: PaintBucket,
     title: "Peinture & décoration",
-    image: "https://images.unsplash.com/photo-1688372199140-cade7ae820fe?w=800&q=80",
+    image: "https://plus.unsplash.com/premium_photo-1661681925488-472f29575137?w=800&q=80",
     description:
       "Peinture intérieure et extérieure, enduits décoratifs, papiers peints haut de gamme. Transformation complète de l&apos;ambiance de vos espaces.",
     items: [
@@ -63,7 +63,7 @@ const prestations = [
     slug: "salle-de-bain",
     icon: Droplets,
     title: "Salle de bain",
-    image: "https://images.unsplash.com/photo-1587527901949-ab0341697c1e?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=800&q=80",
     description:
       "Rénovation de salle de bain clé en main : douche à l&apos;italienne, baignoire, faïence, meuble vasque, robinetterie et chauffage sèche-serviettes.",
     items: [
