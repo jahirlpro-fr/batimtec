@@ -88,11 +88,6 @@ const specialites = [
   },
 ];
 
-const chiffres = [
-  { value: "24h", label: "Délai d'intervention max" },
-  { value: "RGE", label: "Artisans qualifiés" },
-  { value: "Toute la France", label: "Zone d'intervention" },
-];
 
 export default function CVCPage() {
   return (
@@ -134,15 +129,24 @@ export default function CVCPage() {
         </div>
       </section>
 
-      {/* Chiffres */}
-      <section className="bg-white border-b py-12">
+      {/* Aides de l'état */}
+      <section className="py-16 bg-[#f4f6fb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
-            {chiffres.map((c) => (
-              <div key={c.label} className="text-center">
-                <div className="text-3xl font-black text-[#1B3A6B] mb-1">{c.value}</div>
-                <div className="text-sm text-gray-500">{c.label}</div>
-              </div>
+          <ScrollReveal className="text-center mb-12">
+            <h2 className="text-3xl font-black text-[#1B3A6B] mb-3">Aides & subventions disponibles</h2>
+            <p className="text-gray-500 max-w-lg mx-auto">
+              Plusieurs dispositifs peuvent réduire significativement le coût de vos travaux CVC.
+              BATIMTEC vous accompagne dans vos démarches.
+            </p>
+          </ScrollReveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {["MaPrimeRénov'", "CEE", "TVA à 5,5 %", "Éco-PTZ"].map((aide) => (
+              <ScrollReveal key={aide} delay={0.05}>
+                <div className="flex flex-col items-center text-center gap-3 bg-white rounded-2xl px-4 py-5 border border-[#dde3ef] shadow-sm">
+                  <CheckCircle className="w-6 h-6 text-[#C9A84C]" />
+                  <span className="text-sm font-bold text-[#1B3A6B]">{aide}</span>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -202,29 +206,6 @@ export default function CVCPage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Aides de l'état */}
-      <section className="py-20 bg-[#f4f6fb]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-12">
-            <h2 className="text-3xl font-black text-[#1B3A6B] mb-3">Aides & subventions disponibles</h2>
-            <p className="text-gray-500 max-w-lg mx-auto">
-              Plusieurs dispositifs peuvent réduire significativement le coût de vos travaux CVC.
-              BATIMTEC vous accompagne dans vos démarches.
-            </p>
-          </ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {["MaPrimeRénov'", "CEE", "TVA à 5,5 %", "Éco-PTZ"].map((aide) => (
-              <ScrollReveal key={aide} delay={0.05}>
-                <div className="flex flex-col items-center text-center gap-3 bg-white rounded-2xl px-4 py-5 border border-[#dde3ef] shadow-sm">
-                  <CheckCircle className="w-6 h-6 text-[#C9A84C]" />
-                  <span className="text-sm font-bold text-[#1B3A6B]">{aide}</span>
-                </div>
-              </ScrollReveal>
-            ))}
           </div>
         </div>
       </section>

@@ -36,7 +36,7 @@ const poles: Pole[] = [
       { nom: "Électricité", desc: "Câblage, tableaux, prises et éclairage — mise en conformité et dépannage rapide.", image: "https://images.unsplash.com/photo-1635335874521-7987db781153?w=1920&q=80", href: "/travaux#electricite" },
       { nom: "Plomberie", desc: "Canalisations, robinetterie, chauffe-eau, sanitaires. Fuites réparées en urgence.", image: "https://images.unsplash.com/photo-1676210134188-4c05dd172f89?w=1920&q=80", href: "/travaux#plomberie" },
       { nom: "Menuiserie", desc: "Portes, fenêtres, parquet, aménagement bois sur mesure intérieur et extérieur.", image: "https://plus.unsplash.com/premium_photo-1683140920401-36b43c727bb5?w=1920&q=80", href: "/travaux#menuiserie" },
-      { nom: "Dépannage urgent", desc: "Astreinte 24/7. Délai maximal d'intervention : 4h sur tout le territoire français.", image: "https://plus.unsplash.com/premium_photo-1683134531395-1ebecbf3440c?w=1920&q=80", href: "/travaux#depannage" },
+      { nom: "Dépannage urgent", desc: "Astreinte 24/7. Délai maximal d'intervention : 24h.", image: "https://plus.unsplash.com/premium_photo-1683134531395-1ebecbf3440c?w=1920&q=80", href: "/travaux#depannage" },
       { nom: "Multiservices", desc: "Un seul interlocuteur pour tous les corps de métier. Coordination complète de chantier.", image: "https://images.unsplash.com/photo-1581783898377-1c85bf937427?w=1920&q=80", href: "/travaux#multiservices" },
     ],
   },

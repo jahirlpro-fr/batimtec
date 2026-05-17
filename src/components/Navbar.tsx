@@ -79,8 +79,8 @@ const links = [
   { href: "/", label: "Accueil" },
   { href: "/travaux", label: "Travaux" },
   { href: "/renovation", label: "Rénovation" },
-  { href: "/maintenance", label: "Maintenance" },
   { href: "/cvc", label: "CVC" },
+  { href: "/maintenance", label: "Maintenance" },
   { href: "/a-propos", label: "À propos" },
 ];
 
