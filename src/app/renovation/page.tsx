@@ -63,7 +63,7 @@ const prestations = [
     slug: "salle-de-bain",
     icon: Droplets,
     title: "Salle de bain",
-    image: "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1695002817411-203c7f19dfa3?w=800&q=80",
     description:
       "Rénovation de salle de bain clé en main : douche à l&apos;italienne, baignoire, faïence, meuble vasque, robinetterie et chauffage sèche-serviettes.",
     items: [

@@ -30,8 +30,7 @@ const specialites = [
     slug: "ventilation",
     icon: Wind,
     title: "Ventilation",
-    image: "https://images.unsplash.com/photo-1734516893388-db40cbdd4d20?w=800&q=80",
-    objectPosition: "top",
+    image: "https://plus.unsplash.com/premium_photo-1714875083906-e9771ecea92f?w=800&q=80",
     description: "Pose et maintenance de VMC simple ou double flux. Renouvellement d'air réglementaire pour logements, bureaux et ERP.",
     items: [
       "VMC simple flux autoréglable",
@@ -76,7 +75,7 @@ const specialites = [
     slug: "chaudiere",
     icon: Thermometer,
     title: "Chaudière",
-    image: "https://plus.unsplash.com/premium_photo-1664298589198-b15ff5382648?w=800&q=80",
+    image: "https://plus.unsplash.com/premium_photo-1661921394349-9e3f394d80da?w=800&q=80",
     description: "Installation de chaudières à condensation gaz, fioul ou biomasse. Entretien annuel obligatoire et dépannage toutes marques.",
     items: [
       "Chaudière à condensation gaz",

@@ -50,7 +50,7 @@ const poles: Pole[] = [
       { nom: "Sols & revêtements", desc: "Carrelage, parquet, vinyle, béton ciré. Pose soignée sur toutes surfaces.", image: "https://plus.unsplash.com/premium_photo-1683133861653-aef45a198ec1?w=1920&q=80", href: "/renovation#sols" },
       { nom: "Peinture", desc: "Peinture intérieure et extérieure, enduits décoratifs, papiers peints. Finitions premium.", image: "https://plus.unsplash.com/premium_photo-1661681925488-472f29575137?w=1920&q=80", href: "/renovation#peinture" },
       { nom: "Cuisine", desc: "Conception et installation sur mesure, du plan de travail à l'électroménager intégré.", image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1920&q=80", href: "/renovation#cuisine" },
-      { nom: "Salle de bain", desc: "Rénovation complète ou partielle. Douche à l'italienne, faïence, meuble vasque.", image: "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=1920&q=80", href: "/renovation#salle-de-bain" },
+      { nom: "Salle de bain", desc: "Rénovation complète ou partielle. Douche à l'italienne, faïence, meuble vasque.", image: "https://images.unsplash.com/photo-1695002817411-203c7f19dfa3?w=1920&q=80", href: "/renovation#salle-de-bain" },
       { nom: "Agrandissement", desc: "Extension de maison, véranda, surélévation. Permis de construire pris en charge.", image: "https://images.unsplash.com/photo-1723468366036-c5598c8e9786?w=1920&q=80", href: "/renovation#agrandissement" },
     ],
   },
@@ -75,10 +75,10 @@ const poles: Pole[] = [
     href: "/cvc",
     specs: [
       { nom: "Chauffage", desc: "Installation et entretien de systèmes de chauffage central et plancher chauffant.", image: "https://plus.unsplash.com/premium_photo-1664298059861-1560b39fb890?w=1920&q=80", href: "/cvc#chauffage" },
-      { nom: "Ventilation", desc: "VMC simple et double flux, extraction, renouvellement d'air réglementaire.", image: "https://images.unsplash.com/photo-1734516893388-db40cbdd4d20?w=1920&q=80", href: "/cvc#ventilation" },
+      { nom: "Ventilation", desc: "VMC simple et double flux, extraction, renouvellement d'air réglementaire.", image: "https://plus.unsplash.com/premium_photo-1714875083906-e9771ecea92f?w=1920&q=80", href: "/cvc#ventilation" },
       { nom: "Climatisation", desc: "Split system, multi-split, réversible. Installation certifiée et maintenance annuelle.", image: "https://plus.unsplash.com/premium_photo-1683134512538-7b390d0adc9e?w=1920&q=80", href: "/cvc#climatisation" },
       { nom: "Pompe à chaleur", desc: "PAC air/air et air/eau. Installation, mise en service et contrat d'entretien.", image: "https://images.unsplash.com/photo-1700124113583-81aa99ea2aa2?w=1920&q=80", href: "/cvc#pac" },
-      { nom: "Chaudière", desc: "Chaudière gaz, fioul, bois. Entretien annuel obligatoire et dépannage express.", image: "https://plus.unsplash.com/premium_photo-1664298589198-b15ff5382648?w=1920&q=80", href: "/cvc#chaudiere" },
+      { nom: "Chaudière", desc: "Chaudière gaz, fioul, bois. Entretien annuel obligatoire et dépannage express.", image: "https://plus.unsplash.com/premium_photo-1661921394349-9e3f394d80da?w=1920&q=80", href: "/cvc#chaudiere" },
     ],
   },
 ];
