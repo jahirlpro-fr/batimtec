@@ -4,6 +4,8 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import UrgenceTicker from "@/components/UrgenceTicker";
+import FloatingUrgence from "@/components/FloatingUrgence";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -105,9 +107,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
+        <UrgenceTicker />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <FloatingUrgence />
       </body>
     </html>
   );

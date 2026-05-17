@@ -106,7 +106,7 @@ export default function Navbar() {
   const openCls = "bg-[#eef2f8] text-[#1B3A6B]";
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm shadow-sm">
+    <header className="sticky top-8 z-50 w-full border-b bg-white/95 backdrop-blur-sm shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
 
@@ -202,10 +202,6 @@ export default function Navbar() {
 
           {/* CTA + mobile trigger */}
           <div className="flex items-center gap-3">
-            <span className="hidden sm:flex items-center gap-1.5 text-sm font-semibold text-[#1B3A6B] hover:text-[#C9A84C] transition-colors cursor-default select-all">
-              <Phone className="w-4 h-4 shrink-0" />
-              09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-            </span>
             <ButtonLink
               href="/contact"
               size="sm"

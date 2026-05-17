@@ -78,6 +78,29 @@
   --sidebar-ring: #1B3A6B;
 }
 
+/* ─── Urgence ticker ──────────────────────────────────────────── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.3333%); }
+}
+.ticker-track {
+  animation: ticker 22s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Floating urgence button ─────────────────────────────────── */
+@keyframes float-glow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(153,27,27,0.45); }
+  50%       { box-shadow: 0 4px 36px rgba(153,27,27,0.80); }
+}
+.floating-urgence-btn {
+  animation: float-glow 2.5s ease-in-out infinite;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

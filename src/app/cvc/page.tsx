@@ -178,7 +178,6 @@ export default function CVCPage() {
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        style={spec.objectPosition ? { objectPosition: spec.objectPosition } : undefined}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#1B3A6B]/60 to-transparent" />
                       <div className="absolute bottom-6 left-6 flex items-center gap-3">
