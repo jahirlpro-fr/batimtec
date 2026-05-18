@@ -84,8 +84,10 @@
   to   { transform: translateX(-33.3333%); }
 }
 .ticker-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
   animation: ticker 22s linear infinite;
-  width: max-content;
   will-change: transform;
 }
 .ticker-track:hover {

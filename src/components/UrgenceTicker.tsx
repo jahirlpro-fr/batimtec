@@ -1,11 +1,16 @@
 export default function UrgenceTicker() {
   return (
     <div
-      className="sticky top-0 z-[70] bg-[#991B1B] overflow-hidden flex items-center"
+      className="sticky top-0 z-[70] bg-[#991B1B] overflow-hidden"
       style={{ height: 32 }}
     >
-      <div className="ticker-track flex items-center text-white uppercase whitespace-nowrap font-medium"
-        style={{ letterSpacing: "0.12em", fontSize: "clamp(11px, 1.8vw, 12px)" }}
+      <div
+        className="ticker-track text-white uppercase font-medium"
+        style={{
+          letterSpacing: "0.12em",
+          fontSize: "clamp(11px, 1.8vw, 12px)",
+          lineHeight: "32px",
+        }}
       >
         {[0, 1, 2].map((i) => (
           <span key={i} className="inline-flex items-center gap-4 pr-16">
