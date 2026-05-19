@@ -216,7 +216,7 @@ export default function HeroAccordion() {
       idx = (idx + 1) % pole.specs.length;
       setMobileAutoIdx(idx);
       setSpecImages((prev) => ({ ...prev, [openId]: pole.specs[idx].image }));
-    }, 1000);
+    }, 2000);
 
     return () => {
       if (cycleTimerRef.current) {
