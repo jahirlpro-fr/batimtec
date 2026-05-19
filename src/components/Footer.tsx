@@ -62,15 +62,15 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-white/70">
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 shrink-0 text-[#C9A84C]" />
-                <span className="hover:text-[#C9A84C] transition-colors font-semibold cursor-default select-all">
+                <a href="tel:+33623080105" className="hover:text-[#C9A84C] transition-colors font-semibold">
                   06&nbsp;23&nbsp;08&nbsp;01&nbsp;05
-                </span>
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 shrink-0 text-[#C9A84C]" />
-                <span className="hover:text-[#C9A84C] transition-colors cursor-default select-all">
-                  07&nbsp;19&nbsp;34&nbsp;57&nbsp;68
-                </span>
+                <a href="tel:+33749345768" className="hover:text-[#C9A84C] transition-colors">
+                  07&nbsp;49&nbsp;34&nbsp;57&nbsp;68
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 shrink-0 text-[#C9A84C]" />

@@ -4,8 +4,8 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import UrgenceTicker from "@/components/UrgenceTicker";
-import FloatingUrgence from "@/components/FloatingUrgence";
+import FloatingWrapper from "@/components/FloatingWrapper";
+import TickerWrapper from "@/components/TickerWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,7 +64,7 @@ const schemaOrg = {
   description:
     "Expert en maintenance technique, travaux (électricité, plomberie, menuiserie) et rénovation de bâtiments à Orléans et toute la France.",
   url: siteUrl,
-  telephone: ["+33986669610", "+33623080105"],
+  telephone: ["+33623080105", "+33749345768"],
   email: "contact@batimtec.com",
   founder: { "@type": "Person", name: "Loukou GNAMIAN" },
   address: {
@@ -107,11 +107,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
-        <UrgenceTicker />
+        <TickerWrapper />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
-        <FloatingUrgence />
+        <FloatingWrapper />
       </body>
     </html>
   );

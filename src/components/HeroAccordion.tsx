@@ -121,7 +121,7 @@ function SpecLimelightNav({
             key={spec.nom}
             href={spec.href}
             ref={(el) => { itemRefs.current[i] = el; }}
-            className="px-3 py-2.5 text-base font-semibold text-white/70 hover:text-white transition-colors duration-150 whitespace-nowrap"
+            className="px-2 py-2 text-sm sm:text-base font-semibold text-white/70 hover:text-white transition-colors duration-150 whitespace-nowrap"
             onMouseEnter={() => { setHovIdx(i); onBgChange(spec.image); }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -149,7 +149,7 @@ function SpecLimelightNav({
       {/* Description below */}
       <div className="mt-3 min-h-[3rem]">
         <p
-          className="text-white/55 text-base leading-relaxed max-w-lg transition-opacity duration-200"
+          className="text-white/55 text-sm sm:text-base leading-relaxed max-w-lg transition-opacity duration-200"
           style={{ opacity: hovered ? 1 : 0 }}
         >
           {hovered?.desc ?? " "}
@@ -178,6 +178,11 @@ export default function HeroAccordion() {
     const logo = overlayLogoRef.current;
     if (!overlay || !logo) return;
 
+    // Fallback absolu — l'overlay disparaît TOUJOURS après 4s
+    const fallbackTimer = setTimeout(() => {
+      overlay.style.display = "none";
+    }, 4000);
+
     const tl = gsap.timeline();
 
     tl.fromTo(
@@ -186,19 +191,35 @@ export default function HeroAccordion() {
       { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }
     );
 
-    tl.to({}, { duration: 1.5 });
+    tl.to({}, { duration: 1.2 });
 
     tl.call(() => {
+      clearTimeout(fallbackTimer);
+
       const navEl = document.querySelector("[data-nav-logo]");
-      if (!navEl || !logo) return;
+
+      if (!navEl) {
+        // Pas de nav trouvée → disparition directe sans animation
+        gsap.to(overlay, {
+          opacity: 0,
+          duration: 0.5,
+          onComplete: () => { overlay.style.display = "none"; },
+        });
+        return;
+      }
 
       const navRect = navEl.getBoundingClientRect();
       const logoRect = logo.getBoundingClientRect();
-      const dx = navRect.left + navRect.width / 2 - (logoRect.left + logoRect.width / 2);
-      const dy = navRect.top + navRect.height / 2 - (logoRect.top + logoRect.height / 2);
+      const dx = navRect.left + navRect.width / 2
+                 - (logoRect.left + logoRect.width / 2);
+      const dy = navRect.top + navRect.height / 2
+                 - (logoRect.top + logoRect.height / 2);
       const sc = navRect.width / logoRect.width;
 
-      gsap.to(logo, { x: dx, y: dy, scale: sc, duration: 0.9, ease: "power3.inOut" });
+      gsap.to(logo, {
+        x: dx, y: dy, scale: sc,
+        duration: 0.9, ease: "power3.inOut",
+      });
       gsap.to(overlay, {
         opacity: 0,
         duration: 0.65,
@@ -277,7 +298,7 @@ export default function HeroAccordion() {
           ref={overlayLogoRef}
           src="/logo-c-Batimtec.png"
           alt="BATIMTEC"
-          className="w-[480px] md:w-[600px] opacity-0 object-contain"
+          className="w-[160px] sm:w-[280px] md:w-[400px] opacity-0 object-contain"
           style={{
             transformOrigin: "center center",
             filter: "brightness(0) saturate(100%) invert(20%) sepia(52%) saturate(692%) hue-rotate(194deg) brightness(97%) contrast(96%)",
@@ -289,7 +310,7 @@ export default function HeroAccordion() {
       <section
         ref={containerRef}
         className="relative overflow-hidden"
-        style={{ height: "calc(100vh - 4rem)" }}
+        style={{ height: "calc(100svh - 6rem)", minHeight: "480px" }}
         aria-label="Nos pôles d'expertise"
       >
         {poles.map((pole) => {
@@ -341,8 +362,8 @@ export default function HeroAccordion() {
                   <h2
                     className={`font-black text-white tracking-tight leading-none transition-all duration-500 ease-out ${
                       isOpen
-                        ? "text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
-                        : "text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+                        ? "text-3xl sm:text-5xl md:text-7xl lg:text-8xl"
+                        : "text-xl sm:text-3xl md:text-4xl lg:text-5xl"
                     }`}
                   >
                     {pole.label}

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button-link";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
@@ -138,10 +138,10 @@ export default function MaintenancePage() {
               Demander un contrat
               <ArrowRight className="ml-2 w-5 h-5" />
             </ButtonLink>
-            <span className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors cursor-default select-all">
+            <a href="tel:+33623080105" className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors">
               <Phone className="w-5 h-5 shrink-0" />
-              09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-            </span>
+              06&nbsp;23&nbsp;08&nbsp;01&nbsp;05
+            </a>
           </div>
         </div>
       </section>
@@ -281,10 +281,10 @@ export default function MaintenancePage() {
             >
               Nous contacter
             </ButtonLink>
-            <span className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors cursor-default select-all">
+            <a href="tel:+33623080105" className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors">
               <Phone className="w-5 h-5 shrink-0" />
-              09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-            </span>
+              06&nbsp;23&nbsp;08&nbsp;01&nbsp;05
+            </a>
           </div>
         </div>
       </section>

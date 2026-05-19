@@ -14,7 +14,7 @@ SIRET : 979 251 485 00012
 Forme juridique : Société par Actions Simplifiée (SAS)
 Siège social : 15 rue de l'Écu d'or, 45000 Orléans
 Responsable de publication : Loukou GNAMIAN
-Téléphone : 09 86 66 96 10
+Téléphone : 06 23 08 01 05
 Mobile : 06 23 08 01 05
 Email : contact@batimtec.com`,
   },

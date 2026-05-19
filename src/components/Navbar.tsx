@@ -202,9 +202,16 @@ export default function Navbar() {
 
           {/* CTA + mobile trigger */}
           <div className="flex items-center gap-3">
+            <a
+              href="tel:+33623080105"
+              className="hidden md:flex items-center gap-1.5 text-sm font-semibold text-[#1B3A6B] hover:text-[#C9A84C] transition-colors"
+            >
+              <Phone className="w-4 h-4 shrink-0" />
+              06&nbsp;23&nbsp;08&nbsp;01&nbsp;05
+            </a>
             <ButtonLink
               href="/contact"
-              size="sm"
+              size="default"
               className="hidden md:inline-flex bg-[#C9A84C] text-[#1B3A6B] hover:bg-[#1B3A6B] hover:text-white font-bold transition-colors"
             >
               Devis gratuit
@@ -299,14 +306,14 @@ export default function Navbar() {
                   >
                     Devis gratuit
                   </ButtonLink>
-                  <span className="flex items-center justify-center gap-2 text-sm font-semibold text-[#1B3A6B] hover:text-[#C9A84C] transition-colors cursor-default select-all">
-                    <Phone className="w-4 h-4 shrink-0" />
-                    09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-                  </span>
-                  <span className="flex items-center justify-center gap-2 text-sm font-medium text-gray-500 hover:text-[#1B3A6B] transition-colors cursor-default select-all">
+                  <a href="tel:+33623080105" className="flex items-center justify-center gap-2 text-sm font-semibold text-[#1B3A6B] hover:text-[#C9A84C] transition-colors">
                     <Phone className="w-4 h-4 shrink-0" />
                     06&nbsp;23&nbsp;08&nbsp;01&nbsp;05
-                  </span>
+                  </a>
+                  <a href="tel:+33749345768" className="flex items-center justify-center gap-2 text-sm font-medium text-gray-500 hover:text-[#1B3A6B] transition-colors">
+                    <Phone className="w-4 h-4 shrink-0" />
+                    07&nbsp;49&nbsp;34&nbsp;57&nbsp;68
+                  </a>
                 </div>
               </SheetContent>
             </Sheet>

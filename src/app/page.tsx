@@ -241,8 +241,8 @@ export default function HomePage() {
             <ScrollReveal delay={0.15} className="bg-[#1B3A6B] rounded-2xl p-8 text-white">
               <p className="text-[#C9A84C] font-semibold text-sm uppercase tracking-widest mb-4">Coordonnées</p>
               <div className="space-y-3 text-sm">
-                <div><span className="text-white/50">Mobile</span><br /><span className="font-bold text-[#C9A84C] hover:text-white transition-colors cursor-default select-all">06 23 08 01 05</span></div>
-                <div><span className="text-white/50">Urgence / Astreinte 24/7</span><br /><span className="font-bold text-[#C9A84C] hover:text-white transition-colors cursor-default select-all">07 19 34 57 68</span></div>
+                <div><span className="text-white/50">Mobile</span><br /><a href="tel:+33623080105" className="font-bold text-[#C9A84C] hover:text-white transition-colors">06 23 08 01 05</a></div>
+                <div><span className="text-white/50">Urgence / Astreinte 24/7</span><br /><a href="tel:+33749345768" className="font-bold text-[#C9A84C] hover:text-white transition-colors">07 49 34 57 68</a></div>
                 <div><span className="text-white/50">Email</span><br /><a href="mailto:contact@batimtec.com" className="font-bold text-[#C9A84C]">contact@batimtec.com</a></div>
               </div>
             </ScrollReveal>
@@ -270,10 +270,10 @@ export default function HomePage() {
                 Demander un devis gratuit
                 <ArrowRight className="ml-2 w-5 h-5" />
               </ButtonLink>
-              <span className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors cursor-default select-all">
+              <a href="tel:+33623080105" className="flex items-center gap-2 text-base font-semibold text-white/80 hover:text-[#C9A84C] transition-colors">
                 <Phone className="w-5 h-5 shrink-0" />
-                09&nbsp;86&nbsp;66&nbsp;96&nbsp;10
-              </span>
+                06&nbsp;23&nbsp;08&nbsp;01&nbsp;05
+              </a>
             </div>
           </ScrollReveal>
         </div>
