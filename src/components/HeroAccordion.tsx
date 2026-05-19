@@ -351,7 +351,7 @@ export default function HeroAccordion() {
           ref={overlayLogoRef}
           src="/logo-c-Batimtec.png"
           alt="BATIMTEC"
-          className="w-[160px] sm:w-[280px] md:w-[400px] opacity-0 object-contain"
+          className="w-[280px] sm:w-[340px] md:w-[400px] opacity-0 object-contain"
           style={{
             transformOrigin: "center center",
             filter: "brightness(0) saturate(100%) invert(20%) sepia(52%) saturate(692%) hue-rotate(194deg) brightness(97%) contrast(96%)",
