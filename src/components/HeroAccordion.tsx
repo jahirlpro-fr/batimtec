@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -87,32 +87,39 @@ const poles: Pole[] = [
 function SpecLimelightNav({
   specs,
   onBgChange,
+  controlledIndex = null,
 }: {
   specs: Spec[];
   onBgChange: (img: string | null) => void;
+  controlledIndex?: number | null;
 }) {
   const [hovIdx, setHovIdx] = useState<number | null>(null);
   const [ready, setReady] = useState(false);
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const barRef = useRef<HTMLDivElement | null>(null);
 
+  // Mobile auto-cycle (controlledIndex) takes priority over desktop hover
+  const activeIdx = controlledIndex !== null ? controlledIndex : hovIdx;
+
   useLayoutEffect(() => {
-    if (hovIdx === null) return;
+    if (activeIdx === null) return;
     const bar = barRef.current;
-    const item = itemRefs.current[hovIdx];
+    const item = itemRefs.current[activeIdx];
     if (!bar || !item) return;
     bar.style.left = `${item.offsetLeft}px`;
     bar.style.top = `${item.offsetTop + item.offsetHeight - 3}px`;
     bar.style.width = `${item.offsetWidth}px`;
     if (!ready) setTimeout(() => setReady(true), 50);
-  }, [hovIdx, ready]);
+  }, [activeIdx, ready]);
 
-  const hovered = hovIdx !== null ? specs[hovIdx] : null;
+  const active = activeIdx !== null ? specs[activeIdx] : null;
 
   return (
     <div
       className="relative"
-      onMouseLeave={() => { setHovIdx(null); onBgChange(null); }}
+      onMouseLeave={() => {
+        if (controlledIndex === null) { setHovIdx(null); onBgChange(null); }
+      }}
     >
       {/* Items row */}
       <div className="flex flex-wrap gap-x-1">
@@ -122,7 +129,9 @@ function SpecLimelightNav({
             href={spec.href}
             ref={(el) => { itemRefs.current[i] = el; }}
             className="px-2 py-2 text-sm sm:text-base font-semibold text-white/70 hover:text-white transition-colors duration-150 whitespace-nowrap"
-            onMouseEnter={() => { setHovIdx(i); onBgChange(spec.image); }}
+            onMouseEnter={() => {
+              if (controlledIndex === null) { setHovIdx(i); onBgChange(spec.image); }
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             {spec.nom}
@@ -138,7 +147,7 @@ function SpecLimelightNav({
           left: -999,
           top: 0,
           width: 0,
-          opacity: hovIdx !== null ? 1 : 0,
+          opacity: activeIdx !== null ? 1 : 0,
           boxShadow: "0 0 6px 1px #C9A84C70, 0 -18px 16px -4px #C9A84C25",
           transition: ready
             ? "left 300ms ease-out, top 300ms ease-out, width 300ms ease-out, opacity 150ms ease"
@@ -150,9 +159,9 @@ function SpecLimelightNav({
       <div className="mt-3 min-h-[3rem]">
         <p
           className="text-white/55 text-sm sm:text-base leading-relaxed max-w-lg transition-opacity duration-200"
-          style={{ opacity: hovered ? 1 : 0 }}
+          style={{ opacity: active ? 1 : 0 }}
         >
-          {hovered?.desc ?? " "}
+          {active?.desc ?? " "}
         </p>
       </div>
     </div>
@@ -165,12 +174,57 @@ export default function HeroAccordion() {
   const [specImages, setSpecImages] = useState<Record<string, string>>(
     Object.fromEntries(poles.map((p) => [p.id, p.image]))
   );
+  const [isMobile, setIsMobile] = useState(false);
+  const [mobileAutoIdx, setMobileAutoIdx] = useState(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const overlayLogoRef = useRef<HTMLImageElement>(null);
   const panelRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const specsRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const cycleTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  /* ── Mobile detection ───────────────────────────────────────────── */
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  /* ── Auto-cycle specs on mobile when pole opens ─────────────────── */
+  useEffect(() => {
+    if (cycleTimerRef.current) {
+      clearInterval(cycleTimerRef.current);
+      cycleTimerRef.current = null;
+    }
+
+    if (!openId || !isMobile) {
+      setMobileAutoIdx(0);
+      return;
+    }
+
+    const pole = poles.find((p) => p.id === openId);
+    if (!pole) return;
+
+    // Show first spec immediately
+    setMobileAutoIdx(0);
+    setSpecImages((prev) => ({ ...prev, [openId]: pole.specs[0].image }));
+
+    let idx = 0;
+    cycleTimerRef.current = setInterval(() => {
+      idx = (idx + 1) % pole.specs.length;
+      setMobileAutoIdx(idx);
+      setSpecImages((prev) => ({ ...prev, [openId]: pole.specs[idx].image }));
+    }, 1000);
+
+    return () => {
+      if (cycleTimerRef.current) {
+        clearInterval(cycleTimerRef.current);
+        cycleTimerRef.current = null;
+      }
+    };
+  }, [openId, isMobile]);
 
   /* ── Intro animation ─────────────────────────────────────────────── */
   useGSAP(() => {
@@ -199,7 +253,6 @@ export default function HeroAccordion() {
       const navEl = document.querySelector("[data-nav-logo]");
 
       if (!navEl) {
-        // Pas de nav trouvée → disparition directe sans animation
         gsap.to(overlay, {
           opacity: 0,
           duration: 0.5,
@@ -372,12 +425,13 @@ export default function HeroAccordion() {
                   {/* Specs — GSAP controls opacity/maxHeight/marginTop */}
                   <div
                     ref={(el) => { specsRefs.current[pole.id] = el; }}
-                    style={{ opacity: 0, maxHeight: 0, overflow: 'hidden', marginTop: 0 }}
+                    style={{ opacity: 0, maxHeight: 0, overflow: "hidden", marginTop: 0 }}
                     onClick={(e) => e.stopPropagation()}
                   >
                     <SpecLimelightNav
                       specs={pole.specs}
                       onBgChange={(img) => handleBgChange(pole.id, img)}
+                      controlledIndex={isMobile && isOpen ? mobileAutoIdx : null}
                     />
                   </div>
                 </div>
