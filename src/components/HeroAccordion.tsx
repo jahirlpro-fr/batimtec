@@ -415,8 +415,8 @@ export default function HeroAccordion() {
                   <h2
                     className={`font-black text-white tracking-tight leading-none transition-all duration-500 ease-out ${
                       isOpen
-                        ? "text-3xl sm:text-5xl md:text-7xl lg:text-8xl"
-                        : "text-xl sm:text-3xl md:text-4xl lg:text-5xl"
+                        ? "text-5xl sm:text-6xl md:text-7xl lg:text-8xl"
+                        : "text-3xl sm:text-4xl md:text-4xl lg:text-5xl"
                     }`}
                   >
                     {pole.label}
